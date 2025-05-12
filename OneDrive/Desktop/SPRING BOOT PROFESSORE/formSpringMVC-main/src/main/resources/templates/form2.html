@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Registrazione utente 2</title>
-    </head>
-    <body>
-        <h1>Form Utente 2</h1>
-        <form action="#" th:action="@{/submitForm}" th:object="${utente}" method="post">
-            <label >Nome:</label>
-            <input type="text" th:field="*{nome}" required>
-            <br><br>
-            <label >Email:</label>
-            <input type="email" th:field="*{email}" required>
-            <br><br>
-            <button type="submit">Submit</button>
-        </form>
-    </body>
+<head>
+    <title>Registrazione utente 2</title>
+</head>
+<body>
+<h1>Form Utente 2</h1>
+
+<!-- Se ci sono errori, li mostriamo qui -->
+<div th:if="${errori}">
+    <ul>
+        <li th:each="errore : ${errori}" th:text="${errore}"></li>
+    </ul>
+</div>
+
+<form action="#" th:action="@{/submitForm}" th:object="${utente}" method="post">
+    <label>Nome:</label>
+    <input type="text" th:field="*{nome}" required>
+    <br><br>
+
+    <label>Email:</label>
+    <input type="email" th:field="*{email}" required>
+    <br><br>
+
+    <label>Password:</label>
+    <input type="password" th:field="*{password}" required>
+    <br><br>
+
+    <label>Conferma Password:</label>
+    <input type="password" th:field="*{confermaPassword}" required>
+    <br><br>
+
+    <label>Data di Nascita:</label>
+    <input type="date" th:field="*{dataDiNascita}" required>
+    <br><br>
+
+    <label>Numero di Telefono:</label>
+    <input type="tel" th:field="*{numeroDiTelefono}" required>
+    <br><br>
+
+    <button type="submit">Submit</button>
+</form>
+</body>
 </html>

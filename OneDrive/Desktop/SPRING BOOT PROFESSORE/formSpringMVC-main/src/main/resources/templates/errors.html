@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Errore di registrazione</title>
+</head>
+<body>
+<h1>Ci sono degli errori nel tuo modulo!</h1>
+<div th:if="${errori}">
+    <ul>
+        <li th:each="errore : ${errori}" th:text="${errore}"></li>
+    </ul>
+</div>
+<br>
+<a href="#" th:href="@{/form2}">Torna al modulo e correggi gli errori</a>
+</body>
+</html>
